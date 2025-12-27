@@ -1,0 +1,40 @@
+{
+    "name": "companue/shared-utilities",
+    "description": "Shared utilities, traits, and helpers for Companue service packages including ordering, timestamping, and common model behaviors",
+    "keywords": ["laravel", "utilities", "traits", "companue", "shared"],
+    "homepage": "https://github.com/companue/shared-utilities",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Companue Team",
+            "email": "dev@companue.io"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "illuminate/database": "^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.0",
+        "phpunit/phpunit": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Companue\\SharedUtilities\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Companue\\SharedUtilities\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Companue\\SharedUtilities\\Providers\\SharedUtilitiesServiceProvider"
+            ]
+        }
+    }
+}
