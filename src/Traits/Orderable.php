@@ -35,22 +35,20 @@ use Illuminate\Database\Eloquent\Builder;
 trait Orderable
 {
     /**
-     * The ordering attribute name (column name)
-     * 
-     * @var string
-     */
-    protected string $ordering_attr = 'display_order';
-
-    /**
      * Get the ordering attribute name for this model
-     * 
-     * Override the $ordering_attr property in your model to specify a custom ordering attribute
-     * 
+     *
+     * Override by defining a `$ordering_attr` property on your model, or by overriding this method.
+     *
      * @return string The name of the ordering column
      */
     public function orderingAttr(): string
     {
-        return $this->ordering_attr;
+        // Allow models to define protected $ordering_attr = 'your_column';
+        if (property_exists($this, 'ordering_attr') && isset($this->ordering_attr)) {
+            return $this->ordering_attr;
+        }
+
+        return 'display_order';
     }
 
     /**
