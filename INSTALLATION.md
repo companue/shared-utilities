@@ -12,6 +12,20 @@ composer require companue/shared-utilities
 
 The package uses Laravel's auto-discovery feature, so no manual registration is needed.
 
+### Request Timing Middleware
+
+To use shared request timing logging, register the middleware in `app/Http/Kernel.php`:
+
+```php
+\Companue\SharedUtilities\Http\Middleware\LogRequestTiming::class,
+```
+
+Then enable it with:
+
+```dotenv
+LOG_REQUEST_TIMING=true
+```
+
 ## Features
 
 ### Orderable Trait

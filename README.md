@@ -17,6 +17,28 @@ composer require companue/shared-utilities
 
 ## Usage
 
+### Request Timing Middleware
+
+This package ships a shared request timing middleware that can be used across Laravel services.
+
+1. Add the middleware to your application's global HTTP middleware stack in `app/Http/Kernel.php`:
+
+```php
+\Companue\SharedUtilities\Http\Middleware\LogRequestTiming::class,
+```
+
+2. Use the environment key to enable or disable logging:
+
+```dotenv
+LOG_REQUEST_TIMING=true
+```
+
+3. Optionally publish the package config if you want to customize it locally:
+
+```bash
+php artisan vendor:publish --tag=config
+```
+
 ### Orderable Trait
 
 Use the trait in your model:
