@@ -11,7 +11,7 @@ class SharedUtilitiesServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->mergeConfigFrom(__DIR__ . '/../../config/shared-utilities.php', 'shared-utilities');
     }
 
     /**
@@ -19,6 +19,10 @@ class SharedUtilitiesServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../../config/shared-utilities.php' => config_path('shared-utilities.php'),
+            ], 'config');
+        }
     }
 }
